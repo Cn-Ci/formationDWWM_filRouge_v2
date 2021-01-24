@@ -1,0 +1,56 @@
+body {
+background-image        : url(../img/oliver-schwendener-9lcWCCRXiKU-unsplash.jpg);
+background-repeat       : no-repeat;
+background-size         : cover;
+
+}
+
+.inscription{
+    padding-top: 5%;
+}
+
+.titre {
+    color               : rgba(83, 81, 81, 0.856);
+}
+
+.mail {   
+    border              : none;
+}
+
+.btnConnexion {
+    background-color    : #228b229f;
+    border-radius       : 20px;
+    border-color        : white;
+}
+
+.fichier {
+    margin     : auto;
+    width           : 20em
+}
+.retour {
+    background-color    : #22588bad;
+    border-radius       : 20px;
+    border-color        : white;
+    color               : white;
+}
+
+.form-control-plaintext {
+    text-align: center;
+}
+
+#photoUser{
+    width: 30%
+} 
+
+#photoModif{
+
+}
+/* pour ecran au dessus 993px */
+@media (min-width: 993px) { 
+    #photoUser{
+        width:20%
+    } 
+    #photoModif{
+        
+    } 
+}

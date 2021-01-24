@@ -1,0 +1,33 @@
+body{
+    font-family     : 'Caviar Dreams', sans-serif;
+}
+
+#content{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 40vh;
+}
+#title{
+    border-bottom   : 1px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid #28a745;
+    color           : #28a745;
+}
+#infoBlock{
+    bottom: 0px;
+    color:#28a745;
+    border: 2px solid #28a745;
+}
+#info {
+    margin-bottom: 0px;
+}
+#author{
+    float: right;
+}
+#blockCommentaire{
+    padding: 0px;
+    border : 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-forum{
+    padding-top: 10%
+}
+
