@@ -1,4 +1,4 @@
-<?php $url = 'http://localhost:8080/dwwm/filrouge2-Cindy'; ?>
+<?php $url = 'http://localhost:8080/dwwm/filrouge2-v2.0'; ?>
 <link rel="shortcut icon" type="image/png" href="<?=  $url ?>/img/favicon-32x32.png"/> 
 <!-- BOOTSTRAP --> 
 <link 
