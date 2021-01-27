@@ -294,7 +294,7 @@ img {
     #bottom{z-index: 10;
         position: absolute;
         top:90%;
-        left: 70vh;
+        margin: auto;
         display: block;
     }
 

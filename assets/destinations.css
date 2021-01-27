@@ -26,18 +26,6 @@ ul {
     padding-top: 200px;
 }
 
-
-/* deploiement du texte */
-
-#fermeture {
-    display: none;
-}
-
-#fermeture:target {
-    display: block;
-}
-
-
 /* changer la taille de l'image dans la modification de la destination */
 #imageDestinationModif{
     width: 200px;
@@ -78,13 +66,9 @@ label.photoDestination {
 
 /* Carte interactive */
 #divContenantFranceMap{
-    padding-top: 10%;
+    padding-top: 15%;
     height: auto;
     margin: auto;
-}
-.map__image{
-    width: 100%;
-    height:auto;
 }
 
 .map__image path{
@@ -120,10 +104,13 @@ label span input {
 }
 
 
+/* pour ecran au dessus 993px */
 /*********************** Media Queries */
-@media (min-width: 992px) {
-    .map__image{
-        width: 75%;
-        height:75%;
+@media (min-width: 993px) {
+    .divContenantFranceMap{
+        padding-top:20%
+    }
+    #map{
+        width: 60%;
     }
 }

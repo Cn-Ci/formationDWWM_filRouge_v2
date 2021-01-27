@@ -27,10 +27,11 @@
                         </p>
                         
                     </div>
-                    <div id="bottom">
+                    <!-- A revoir -->
+                    <div id="bottom" class="row">
                         <a href="#page2" onclick="goToPage2()">
-                            <div id="blocOverlay" class="row">
-                                <div class="col-12 footer"><p id="discoverSite">DÉCOUVRIR NOTRE SITE</p>
+                            <div id="blocOverlay" class="col-12" >
+                                <div class="footer"><p id="discoverSite">DÉCOUVRIR NOTRE SITE</p>
                                     <div id="triangle"></div>
                                 </div>
                             </div>

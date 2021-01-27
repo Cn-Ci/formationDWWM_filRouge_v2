@@ -36,7 +36,7 @@ class Destination extends Region{
             'region ' =>  $this->getRegion(),
             'lieu ' =>  $this->getLieu(),
             'image ' =>  $this->getImage(), 
-            'petiteDescription' =>  $this->getPetiteDescritpion(),
+            'petiteDescription' =>  $this->getPetiteDescription(),
             'description ' =>  $this->getDescription(),
             'atout1 ' =>  $this->getAtout1(),
             'atout2 ' =>  $this->getAtout2(),   

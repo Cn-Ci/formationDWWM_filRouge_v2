@@ -10,8 +10,7 @@
                 isset($_GET['action'])  && $_GET['action']=='supprimer' &&
                 isset($_GET['id'])){
                     $id= $_GET['id'];
-
-                    if(ServicePersonnel :: serviceDeletePersonnel($id)){
+                    if(ServicePersonnel::serviceDeletePersonnel($id)){
                         header('../controller/controllerMain.php');
                     }
                     else

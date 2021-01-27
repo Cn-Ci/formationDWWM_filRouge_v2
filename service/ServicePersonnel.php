@@ -45,7 +45,9 @@ class ServicePersonnel {
 
     public static function serviceDeletePersonnel(int $id) : void{
         try{
-            (new PersonnelDAO())->deletePersonnelDAO($id);
+            $personnel = new PersonnelDAO();
+            $personnel->deletePersonnelDAO($id);
+            
         }catch(DaoSqlException $ServiceException){
             throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
         }   

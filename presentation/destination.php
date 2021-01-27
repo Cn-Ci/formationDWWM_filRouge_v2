@@ -29,26 +29,25 @@ function footer(){ ?>
             <script type="text/javascript" src="../assets/scriptDestination.js"></script>
         </body>
     </html>
-<?php }
+<?php } ?>
 
-function boutonFrance(){ ?>
+
+<?php function boutonFrance(){  ?>
         
             <!-- Image de la France -->
-            <div id="divContenantFranceMap" class="w-50">
-                <div id="les4img">
-                    <center>
-                        <?php   include('../presentation/cmap/carte.html') ?>
-                    </center>
-                </div> 
+            <div id="divContenantFranceMap" class="w-50 mx-auto">
+                        <?php   include('../presentation/cmap/carte.html') ?> 
             </div>  
-            <div id="textAjax" class="text-center" ></div>
-<?php }
+            <div id="contenu_region" class="text-center" ></div>
+<?php } ?>
 
+
+<?php
 function affichageDestination($destination, $region, $session)
 { 
     $i=1; ?>
 
-    <div id="<?php  echo $region ?>" class="align-items-center m-3">
+    <div id="<?php echo $region.$i ?>" class="align-items-center m-3">
         <?php foreach($destination as $dest){
             if($dest->getRegion() == $region){ ?>
                 <!-- affichage de la destination -->
@@ -67,13 +66,14 @@ function affichageDestination($destination, $region, $session)
                                 </h4>
                                 <!-- intro et description -->
                                 <p style="text-indent: 20px"><?php echo $dest->getPetiteDescription() ?></p>
-                                </br> <p style="text-indent: 20px" class="font-weight-bold text-break" > <?php echo $dest->getDescription() ?></p>
+                                </br> 
+                                <p style="text-indent: 20px" class="font-weight-bold text-break" > <?php echo $dest->getDescription() ?></p>
                                 <!-- en lire plus = les atouts -->
-                                <div class="collapse multi-collapse" id="fermeture1">
+                                <div style="display: none;" id="lire_plus_<?=$i ?>">
                                     <div>
-                                        <p id="fermeture1" style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout1() ?></p>
-                                        <p id="fermeture1" style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout2() ?></p>
-                                        <p id="fermeture1" style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout3() ?></p>
+                                        <p style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout1() ?></p>
+                                        <p  style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout2() ?></p>
+                                        <p  style="text-indent: 20px" class="text-break"><?php echo $dest->getAtout3() ?></p>
                                     </div>
                                     <!-- les boutons -->
                                     <div class="row">
@@ -94,24 +94,39 @@ function affichageDestination($destination, $region, $session)
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="plus text-right col-12 col-md-8 mb-2">
-                            <a  class="text-success" data-toggle="collapse" href="#fermeture1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">En lire plus</a>
+                            <button class="btn btn-outline-success" id="lp_<?=$i ?>">Lire plus</button>
                         </div>
-                    </div>
+                        <script>
+                            $("#lp_<?=$i ?>").click(function(){
 
-                    <!-- lien forum + lien exploration -->
-                    <div class="forumLien row col-12">
-                        <div class="forum text-center col-12 col-md-10 my-1">
-                            <a href ="<?php echo $dest->getExtraitForum() ?>"><button type="button" class="btn btn-outline-success color-228B22" target="_blank">Accéder au Forum</button> </a>
-                        </div>
-                        <div class="bouton text-center col-12 col-md-2 my-1"> 
-                            <a href ="<?php echo $dest->getLien() ?>"><button type="button" class="btn btn-outline-success color-228B22" target="_blank">M'y rendre</button> </a>
-                        </div>
+                                if($('#lire_plus_<?=$i ?>').css('display') == 'none')
+                                {
+                                    $(this).html('Lire moins')
+                                    $("#lire_plus_<?=$i ?>").fadeIn()
+                                }else{
+                                    $(this).html('Lire plus')
+                                    $("#lire_plus_<?=$i ?>").fadeOut()
+                                }
+                            })
+                        </script>
                     </div>
-                    <hr class="my-3">
-                    <?php $i++;
-                // fermeture de la d.iv d'une destination
-                echo "</div>";
+                </div>
+
+                <!-- lien forum + lien exploration -->
+                <div class="forumLien row col-12">
+                    <div class="forum text-center col-12 col-md-10 my-1">
+                        <a href ="<?php echo $dest->getExtraitForum() ?>" target="_blank" class="btn btn-outline-success color-228B22">Accéder au Forum</a>
+                    </div>
+                    <div class="bouton text-center col-12 col-md-2 my-1"> 
+                        <a href ="<?php echo $dest->getLien() ?>" target="_blank" class="btn btn-outline-success color-228B22" >M'y rendre</a>
+                    </div>
+                </div>
+                <hr class="my-3">
+                <?php $i++;
+            // fermeture de la div d'une destination
+            echo "</div>";
             }
         }
         //fermeture div de toutes les destinations
@@ -158,8 +173,8 @@ function buttonAjout($maj=null, $dest=null)
                                         <option value="Normandie">Normandie</option>
                                         <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
                                         <option value="Occitanie">Occitanie</option>
-                                        <option value="Pays-de-Loire">Pays-de-Loire</option>
-                                        <option value="Provence-Alpes-Côte-d-Azur">Provence-Alpes-Côte-d'Azur</option>
+                                        <option value="Pays-de-la-Loire">Pays-de-Loire</option>
+                                        <option value="Provence-Alpes-Cote-d-Azur">Provence-Alpes-Côte-d'Azur</option>
                                     </select>
                                 </div>
                             </div>
