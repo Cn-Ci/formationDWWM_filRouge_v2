@@ -24,6 +24,7 @@ function connection($errorCode=null){
             type="text/css" 
             href="../assets/userConnexionStyle.css">
     </head>
+    
     <body>
         <div class="connection">
             <form class="tableau text-center m-5" action="../controller/controllerUser.php?action=connect" method="post">
