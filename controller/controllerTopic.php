@@ -1,6 +1,7 @@
 <?php 
     require_once('../service/serviceTopic.php');
     require_once('../presentation/forum_main.php');
+    
 //on détermine la page où on est
 if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = (int) strip_tags($_GET['page']);

@@ -4,6 +4,7 @@
 /*     if (!$_SESSION) {
         header('location: ./controllerUserConnect.php?action=connexion');
     }  */
+    
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'modify') {

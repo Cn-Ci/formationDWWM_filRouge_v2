@@ -20,10 +20,10 @@
 
         public static function serviceResearchTopicBy(Int $idTopic) :?Topic {
             try {
-                var_dump($idTopic);
+                
                 $dao = new TopicDAO();
                 $data = $dao->researchBy($idTopic);
-                var_dump($data);
+           
             } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }

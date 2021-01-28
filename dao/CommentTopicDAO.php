@@ -46,7 +46,7 @@
 
         public static function delete(Int $idComm, Int $idParentTopic) :Void {
             $db = ConnectionMysqliDAO::connect();
-            var_dump($idParentTopic);
+           
 
             //* LAUNCH AUTO DECREMENT OF NBCOMM IN PARENTTOPIC
             Self::decrementParentPostNbComm($idParentTopic);
@@ -79,7 +79,6 @@
         public static function decrementParentPostNbComm(int $idTopic) :Void {
             $db = ConnectionMysqliDAO::connect();
 
-            var_dump($idTopic);
             try {
                 $incrementComm = $db->prepare("UPDATE `topic` SET nbComm = (@cur_value := nbComm) - 1 WHERE idTopic = :idTopic");
                 $incrementComm->execute(array(

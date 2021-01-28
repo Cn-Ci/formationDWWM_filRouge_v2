@@ -25,8 +25,4 @@
     }
     
 ?>
-    <script 
-        type="text/javascript" 
-        src="../assets/scriptDestination.js">
-    </script>
     

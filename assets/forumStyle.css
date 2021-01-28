@@ -29,11 +29,13 @@ th{
     background-image: url(../img/forumBg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 #gradientBlock{
     height: 100%;
     background: rgb(255,255,255);
     background: linear-gradient(270deg, rgba(255,255,255,1) 1%, rgba(255,255,255,0) 100%);
+    min-height: 100vh;
 }
 
 .pagination {

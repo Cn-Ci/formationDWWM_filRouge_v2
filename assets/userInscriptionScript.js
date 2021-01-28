@@ -13,6 +13,7 @@ $("#focusId").on('click keyup', function(){
             minLength: 1,
             success : function(code_html, statut){
                 if (code_html == '0'){
+                    console.log(code_html);
                     $("#focusId").css("border-bottom", "1px solid green");
                     $("#focusId").css("color", "green");
                     $('#pseudo_verif').hide();
@@ -21,6 +22,7 @@ $("#focusId").on('click keyup', function(){
                     $(".pseudo_not_exist").show();
                     
                 }else{
+                    console.log(code_html);
                     $("#focusId").css("border-bottom", "1px solid #a81b18");
                     $("#focusId").css("color", "#a81b18");
                     $('#pseudo_verif').show();

@@ -31,3 +31,4 @@ try {
 catch (PDOException $e){
     echo 'Echec de la connexion : '.$e->getMessage();
 }   
+

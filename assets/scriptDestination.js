@@ -27,12 +27,12 @@ $(".buttonsDestination").click(function(){
 //     console.log(region);
 // }
 
-$(document).ready(function(){
-    
+$(document).ready(function(){  
+    $('#contenu_region').empty();
    $('.map a').click(function(e){
     let region = null;
-    region = e.currentTarget.id;
-    console.log(region)
+    region = this.getAttribute('id');
+    console.log(region);
         $.ajax({
             url: "ControllerAjaxDestination.php?region="+region,
             type: "POST",
