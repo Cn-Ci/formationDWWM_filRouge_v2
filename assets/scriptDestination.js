@@ -1,15 +1,21 @@
-// Afficher le formulaire d'ajout ou de modification, selon le bouton - Destination
+//Afficher le formulaire d'ajout ou de modification, selon le bouton - Destination
 // $('.buttonsDestination button').click(function(e) {
-//     let id = e.target.id;
-//     var displayForm = $("#form" + id);
-//     console.log("#form" + id);
-
+    
 //     if (displayForm.css("display") === "none") {
 //         displayForm.attr("style", "display:block");
 //     } else if (displayForm.css("display", "block")) {
 //         displayForm.css("display", "none");
 //     }
 // });
+
+$(".buttonsDestination").click(function(){
+    if($('#formAjoutDestination').css('display') == 'none')
+    {
+        $("#formAjoutDestination").fadeIn()
+    }else{
+        $("#formAjoutDestination").hide()
+    }
+})
 
 
 
@@ -37,9 +43,6 @@ $(document).ready(function(){
                 $('#contenu_region').html("")
                 $('#contenu_region').append(code_html)
                 }
-
-                
-        
             }
         );
    })

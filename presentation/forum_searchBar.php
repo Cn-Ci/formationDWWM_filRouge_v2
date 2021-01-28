@@ -14,10 +14,11 @@
         </form>
     </div>
 
-
+    <?php if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['profil'] == 'administrateur' || isset($_SESSION) && !empty($_SESSION) && $Author->getPseudo() == $_SESSION['pseudo']) {?>
     <div class="col-12 col-lg-2 text-center">
         <a href="../controller/controllerCreatePostForum.php"><button type="submit" class="btn btn-success color-228B22 my-3" id="boutonsubmit">+ Créer un post</button></a>
     </div>
+    <?php } ?>
 </div>
 
 <style>

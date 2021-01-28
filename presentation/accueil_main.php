@@ -20,15 +20,15 @@
                 <div id="bg">
                     <div id="page1"></div>
                     <div id="contenu-page-1" class="ml-5 bounce-in-top">
-                        <h1>Mobili'T</h1>
+                        <h1 class="line anim-typewriter">Mobili'T</h1>
                         <h2>Idées & Conseils voyage pour personnes en situation de handicap</h2>
                         <p>
-                            <a href="../controller/controllerDestination.php" class="btn btn-lg bg-vert mt-5 ">VOIR LES DESTINATIONS</a>
+                            <a href="../controller/controllerDestination.php" class="btn btn-lg bg-vert mt-1 ">VOIR LES DESTINATIONS</a>
                         </p>
                         
                     </div>
                     <!-- A revoir -->
-                    <div id="bottom" class="row">
+                    <div id="bottom" class="w-100 mx-auto">
                         <a href="#page2" onclick="goToPage2()">
                             <div id="blocOverlay" class="col-12" >
                                 <div class="footer"><p id="discoverSite">DÉCOUVRIR NOTRE SITE</p>

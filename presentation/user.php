@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>MOBILI'T - Formulaire </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <!-- HEAD -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link 
+            rel="stylesheet" 
+            type="text/css" 
+            href="../assets/userInscriptionStyle.css">
+    </head>
+    <body>
 <?php
 function inscription($errorCode=null){
     if($errorCode && $errorCode == 1062){
@@ -13,25 +27,12 @@ function inscription($errorCode=null){
         echo "<center><div class='alert alert-success'> Féliciation ! Vous êtes inscrit !</div></center>";
     }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>MOBILI'T - inscription</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <!-- HEAD -->
-        <?php include_once '../templates/header.php'?>
-        <link 
-        rel="stylesheet" 
-        type="text/css" 
-        href="../assets/userInscriptionStyle.css">
-    </head>
-    
+
     <div class="inscription">
         <form class="tableau text-center" action="../controller/controllerUser.php?action=inscription" method="post" enctype="multipart/form-data">
             <h3 class="titre my-5 ">Formulaire d'inscription</h3>
             <div class="mail">
-                <input required id="myTextFocusPseudo" class="text-center form-control-plaintext" type="text" name="pseudo"  placeholder="Saisir votre pseudo"> <br/>
+                <input required id="focusId" class="text-center form-control-plaintext w-50 mx-auto" type="text" name="pseudo"  placeholder="Saisir votre pseudo"> <br/>
             </div>
             <div id="pseudo_verif" class="alert alert-danger text-center">
                 <span class="pseudo">
@@ -40,7 +41,7 @@ function inscription($errorCode=null){
                 </span>
             </div>
             <div class="mail ">
-                <input required id="email_inscription" class="text-center form-control-plaintext" type="email" name="email"  placeholder="Saisir votre email"> <br/>
+                <input required id="email_inscription" class="text-center form-control-plaintext w-50 mx-auto" type="email" name="email"  placeholder="Saisir votre email"> <br/>
             </div>
             <div id="email_verif" class="alert text-center">
                 <span class="email">
@@ -49,16 +50,16 @@ function inscription($errorCode=null){
                 </span>
             </div>
             <div class="mail ">
-                <input required class="text-center form-control-plaintext" type="text" name="nom"  placeholder="Saisir votre nom"> <br/>
+                <input required class="text-center form-control-plaintext w-50 mx-auto" type="text" name="nom"  placeholder="Saisir votre nom"> <br/>
             </div>
             <div class="mail ">
-                <input required class="text-center form-control-plaintext" type="text" name="prenom"  placeholder="Saisir votre prenom"> <br/>
+                <input required class="text-center form-control-plaintext w-50 mx-auto" type="text" name="prenom"  placeholder="Saisir votre prenom"> <br/>
             </div>   
             <div class="mail align-items-center text-center">
-                <input requided id ="password_inscription" class="text-center form-control-plaintext"  type="password" name="password" placeholder="Saisir votre mot de passe"> <br/>       
+                <input requided id ="password_inscription" class="text-center form-control-plaintext w-50 mx-auto"  type="password" name="password" placeholder="Saisir votre mot de passe"> <br/>       
             </div>
             <div class="mail align-items-center text-center">
-                <input requided id ="confirm_password_inscription" class="text-center form-control-plaintext"  type="password" name="password" placeholder="Confirmer votre mot de passe"> <br/>       
+                <input requided id ="confirm_password_inscription" class="text-center form-control-plaintext w-50 mx-auto"  type="password" name="password" placeholder="Confirmer votre mot de passe"> <br/>       
             </div>
             <div class="row">
                 <div class="col-12">
@@ -94,7 +95,7 @@ function inscription($errorCode=null){
             <?php $photo = '../img/profilDefaut.jpg'; ?>
             <img id="photoUser" src="<?= $photo ?>" class="img-fluid" alt="photo">
             <div class="fichier ">
-                <input requided class="text-center form-control-plaintext" type="file" name="photo" onchange="previewFile()" placeholder="Selectionner votre photo ci dessous"> <br/>
+                <input requided class="text-center form-control-plaintext w-50 mx-auto" type="file" name="photo" onchange="previewFile()" placeholder="Selectionner votre photo ci dessous"> <br/>
                 <hr>
             </div>    
                 <button class="btnConnexion text-center btn btn-primary mt-3" type="submit" name="inscrire">S'inscrire</button>    
@@ -102,7 +103,7 @@ function inscription($errorCode=null){
         <div class="row text-center">
             <div class="col-12">
                 <a href='../controller/controllerUser.php?action=connexion'>
-                    <button class='btnConnexion btn btn-primary mb-4'> Se connecter</button>
+                    <button class='btnConnexion btn btn-primary my-4'> Se connecter</button>
                 </a>
             </div>
             <div class="col-12">
@@ -112,63 +113,11 @@ function inscription($errorCode=null){
             </div>
         </div>
     </div>
-    <?php include_once '../templates/linkScriptJs.php';?>
+    <?php include_once '../templates/linkScriptJs.php' ?>;
     <script type="text/javascript" src="../assets/userInscriptionScript.js"></script>
 <?php
 }
 
-function connection($errorCode=null){
-    if($errorCode && $errorCode == 23003){
-        echo "<center><div class='alert alert-danger'> Erreur lors de l'affichage de la page de Connection! !</div></center>";
-    }
-    elseif($errorCode && $errorCode == 24002){
-        echo "<center><div class='alert alert-success'> Vous êtes inscrit, vous pouvez maintenant vous connecter ! !</div></center>";
-    }
-    elseif($errorCode && $errorCode == 23004){
-        echo "<center><div class='alert alert-danger'> Erreur lors de la connexion, vérifiez vos identifiant ! !</div></center>";
-    } 
-    ?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>MOBILI'T - Connection</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <!-- HEAD -->
-        <?php include_once '../templates/header.php'?>
-        <link 
-            rel="stylesheet" 
-            type="text/css" 
-            href="../assets/userConnexionStyle.css">
-    </head>
-    <div class="connection">
-        <form class="tableau text-center m-5" action="../controller/controllerUser.php?action=connect" method="post">
-            <h3 class="titre m-3">Connexion</h3>
-            <div class="mail mt-2 ">
-                <input required id="myTextFocusEmail" class="text-center form-control-plaintext rounded w-50 mx-auto" type="email" name="email"  placeholder="Saisir votre email"> <br/>
-                <div id="email_verif" class="alert alert-danger text-center">
-                    <span class="email">
-                        <span class="email_exist"><i class="fas fa-check-circle"></i></span>
-                        <span class="email_not_exist"><i class="fas fa-exclamtion-circle"></i>Cet adresse e-mail n'existe pas !</span>
-                    </span>
-                </div>
-                
-            </div>
-            <div class="mail mt-2">
-                <input requided class="text-center form-control-plaintext rounded w-50 mx-auto" type="password" name="password" placeholder="Saisir votre mdp"> <br/>
-            </div>
-            <button class="btnConnection text-center btn btn-primary " type="submit" name="connecter" >Connexion</button>    
-        </form>
-        <div class="text-center">
-            <a href='../controller/controllerMain.php'>
-                <button type="submit" class="retour text-center btn btn-dark m-2 "><i class="fas fa-sign-in-alt"></i> Retour à la page d'accueil</button>
-            </a>
-        </div>
-    </div>
-    <?php include_once '../templates/linkScriptJs.php';?>
-    <script type="text/javascript" src="../assets/userConnexionScript.js"></script>
-<?php
-}
 
 function modification($user, $errorCode=null){
     if($errorCode && $errorCode == 24005){
@@ -181,23 +130,10 @@ function modification($user, $errorCode=null){
         echo "<center><div class='alert alert-success'> Votre modification a bien été enregistré !</div></center>";
     } 
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>MOBILI'T - Modification</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <!-- HEAD -->
-        <?php include_once '../templates/header.php'?>
-        <link 
-            rel="stylesheet" 
-            type="text/css" 
-            href="../assets/userInscriptionStyle.css">
-    </head>
         <form class="tableau text-center my-2 mx-auto" action="../controller/controllerUser.php?action=modifierOK" method="post" enctype="multipart/form-data"> 
             <h3 class="titre mt-5 mb-5"><i class="fas fa-pen"></i> Formulaire de modification</h3>
             <div class="mail ">
-                <input id="myTextFocusPseudoModif" class=" text-center form-control-plaintext w-50 mx-auto" type="text" name="pseudo" value="<?php echo $user->getPseudo()?>" placeholder="Modifiez votre pseudo" ></br>
+                <input id="focusIdModif" class=" text-center form-control-plaintext w-50 mx-auto" type="text" name="pseudo" value="<?php echo $user->getPseudo()?>" placeholder="Modifiez votre pseudo" ></br>
             </div>
             <div class="mail">
                 <input readonly class="text-center form-control-plaintext w-50 mx-auto" type="email" name="email" value="<?php echo $user->getEmail()?>" placeholder=" Modifiez votre email" ><br/>
@@ -215,15 +151,21 @@ function modification($user, $errorCode=null){
                 <input class="text-center form-control-plaintext mx-auto" type="file" onchange="previewFile()" name="photo" value="" placeholder="Modifiez votre photo"><br/>
                 <hr>
             </div>  
-            <input type="submit" class="btnConnexion  text-center btn btn-primary mb-4 mt-3" value="Modifier"/>
+            <input type="submit" class="btnConnexion  text-center btn btn-primary my-4 mt-3" value="Modifier"/>
         </form>
         <div class="text-center mb-">
             <a href='../controller/controllerMain.php' class='text-white'>
                 <button type="submit" class='retour text-center btn btn-dark m-2 '><i class="fas fa-sign-in-alt"></i> Retour à la page d'accueil</button>
             </a>    
         </div>
+    </body>
         <?php include_once '../templates/linkScriptJs.php';?>
-        <script type="text/javascript" src="../assets/userInscriptionScript.js"></script>
+        <script>
+            // focus
+            window.onload = function(){
+                document.getElementById('focusId').focus();
+            }
+        </script>
 <?php 
 }
 ?>   

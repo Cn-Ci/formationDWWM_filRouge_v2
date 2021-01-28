@@ -7,10 +7,10 @@
 	</button>
 
 	<div class="collapse navbar-collapse navbar-nav " id="navbarSupportedContent">
-		<a class="nav-item active mx-auto nav-link text-shadow-pop-bottom p-1" href="../controller/controllerMain.php">ACCUEIL</a>
-		<a class="nav-item mx-auto nav-link text-shadow-pop-bottom p-1" href="../presentation/orga.php">ORGANISATION</a>
-		<a class="mx-auto nav-link text-shadow-pop-bottom p-1" href="../controller/controllerDestination.php">DESTINATION</a>
-		<a class="mx-auto nav-link text-shadow-pop-bottom p-1" href="../controller/controllerTopic.php?action=showAllTopic">FORUM</a>
+		<a class="underline nav-item active mx-auto nav-link p-1" href="../controller/controllerMain.php">ACCUEIL</a>
+		<a class="underline nav-item mx-auto nav-link text-shadow-pop-bottom p-1" href="../presentation/orga.php">ORGANISATION</a>
+		<a class="underline mx-auto nav-link text-shadow-pop-bottom p-1" href="../controller/controllerDestination.php">DESTINATIONS</a>
+		<a class="underline mx-auto nav-link text-shadow-pop-bottom p-1" href="../controller/controllerTopic.php?action=showAllTopic">FORUM</a>
 		
 		
 		<a class="nav-item dropdown mx-auto nav-link dropdown-toggle text-shadow-pop-bottom p-1" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

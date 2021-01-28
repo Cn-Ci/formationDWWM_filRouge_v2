@@ -2,10 +2,13 @@ body {
     background-image    : url(../img/paysage-hd_1600x900.jpg);
     background-repeat   : no-repeat;
     background-size     : cover;
-    }
+    min-height          : 100vh;
+}
+
 .connection{
     padding-top: 5%;
 }
+
 .titre {
     color               : rgba(83, 81, 81, 0.856);
 }
@@ -26,10 +29,4 @@ body {
     border-radius       : 20px;
     border-color        : white;
     color               : white;
-}
-
-
-
-@media only screen and (max-width:990px) {
-    
 }

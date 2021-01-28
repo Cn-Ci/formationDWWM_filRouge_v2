@@ -56,7 +56,8 @@ function affichageDestination($destination, $region, $session)
                         <div class="row">
                             <!-- image  -->
                             <div class="col-12 col-lg-4 mb-2">
-                                <img src="data:image/jpeg;base64,<?php echo base64_encode( $dest->getImage() ); ?>" class="img-fluid w-100" alt="Image descriptive de la region"/>
+                            <?php $photo = ($dest->getImage() != '') ? 'data:image/jpeg;base64, '.base64_encode( $dest->getImage()).'' : '../img/paysage_def.jpg'; ?>
+                                <img src="<?= $photo ?>" class="img-fluid w-100" alt="Image descriptive de la region"/>
                             </div>
                             <!-- desription + atouts -->
                             <div class="col-12 col-lg-8 text-justify">
@@ -144,9 +145,10 @@ function buttonAjout($maj=null, $dest=null)
             </button> 
         </div>
         
-        <div id="<?php if(!$maj || $maj==null){ echo "formAjoutDestination";}elseif($maj){echo "formModifDestination". $idDestination;}else{};?>" class="container" style="display:none">
+        <div id="<?php if(!$maj || $maj==null){ echo "formAjoutDestination";}elseif($maj){echo "formModifDestination". $idDestination;}else{};?>" class="container" style="display: none;">
+
         
-        <div class="globalConnexion text-center p-2">
+        <div id ="globalConnexion" class="text-center p-2">
                 <form action="../controller/controllerDestination.php?action=<?php if(!$maj || $maj==null){echo "ajoutDestination";}elseif($maj){echo "modifDestination&id=".$idDestination;} ?>" method="POST" enctype="multipart/form-data">
                     
                     <div class="form-group">
@@ -163,7 +165,7 @@ function buttonAjout($maj=null, $dest=null)
                                     <select class="form-control" id="<?php if(!$maj){echo "selectRegion" ;}else{echo "selectRegion". $idDestination;}?>" name="region">
                                         <option <?php if(!$maj){echo "selected";}elseif($maj){echo "value=".$dest->getRegion();} ?>><?php if(!$maj){echo "Choisir votre région";}elseif($maj){echo $dest->getRegion();}?></option>
                                         <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-                                        <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+                                        <option value="Bourgogne-Franche-Comte">Bourgogne-Franche-Comté</option>
                                         <option value="Bretagne">Bretagne</option>
                                         <option value="Centre">Centre</option>
                                         <option value="Corse">Corse</option>

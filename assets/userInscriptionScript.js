@@ -2,8 +2,8 @@
 $('#pseudo_verif').hide();
 
 // pseudo 
-$("#myTextFocusPseudo").on('click keyup', function(){
-    var pseudo_user_inscription =  $("#myTextFocusPseudo").val();
+$("#focusId").on('click keyup', function(){
+    var pseudo_user_inscription =  $("#focusId").val();
     if ($(this).val()) {
         $.ajax({
             url: "../assets/api/verifPseudo.php",
@@ -13,16 +13,16 @@ $("#myTextFocusPseudo").on('click keyup', function(){
             minLength: 1,
             success : function(code_html, statut){
                 if (code_html == '0'){
-                    $("#myTextFocusPseudo").css("border-bottom", "1px solid green");
-                    $("#myTextFocusPseudo").css("color", "green");
+                    $("#focusId").css("border-bottom", "1px solid green");
+                    $("#focusId").css("color", "green");
                     $('#pseudo_verif').hide();
                     $(".pseudo").css("color", "green");
                     $(".pseudo_exist").hide();
                     $(".pseudo_not_exist").show();
                     
                 }else{
-                    $("#myTextFocusPseudo").css("border-bottom", "1px solid #a81b18");
-                    $("#myTextFocusPseudo").css("color", "#a81b18");
+                    $("#focusId").css("border-bottom", "1px solid #a81b18");
+                    $("#focusId").css("color", "#a81b18");
                     $('#pseudo_verif').show();
                     $(".pseudo").css("color", "#a81b18");
                     $(".pseudo_exist").show();
@@ -31,12 +31,12 @@ $("#myTextFocusPseudo").on('click keyup', function(){
             }
         });
     } else {
-        if( $("#myTextFocusPseudo").val() != ''){
-            $("#myTextFocusPseudo").css("border-bottom", "1px solid #a81b18");
-            $("#myTextFocusPseudo").css("color", "#a81b18");
+        if( $("#focusId").val() != ''){
+            $("#focusId").css("border-bottom", "1px solid #a81b18");
+            $("#focusId").css("color", "#a81b18");
         }else{
-            $("#myTextFocusPseudo").css("border-bottom", "1px solid #ced4da");
-            $("#myTextFocusPseudo").css("color", "#495057");
+            $("#focusId").css("border-bottom", "1px solid #ced4da");
+            $("#focusId").css("color", "#495057");
         }
     }
 });
@@ -168,11 +168,7 @@ $("#confirm_password_inscription").on('keyup', function(){
 
 // focus
 window.onload = function(){
-    document.getElementById('myTextFocusPseudo').focus();
-}
-
-window.onload = function(){
-    document.getElementById('myTextFocusPseudoModif').focus();
+    document.getElementById('focusId').focus();
 }
 
 // changement photo instannée

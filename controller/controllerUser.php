@@ -2,6 +2,7 @@
 session_start();
 
 include_once("../presentation/user.php");
+include_once("../presentation/userConnection.php");
 include_once('../exception/ServiceException.php');  
 include_once('../service/ServiceUser.php');  
 include_once('../service/ServiceNewsletter.php ');  
