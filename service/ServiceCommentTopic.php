@@ -3,6 +3,7 @@ require_once '../controller/controllerAddComment.php';
 require_once '../dao/CommentTopicDAO.php';
 require_once '../class/Commentaire.php';
 require_once '../exception/ServiceException.php';
+require_once '../exception/DAOException.php';
 
 class ServiceCommentTopic {
     public static function addComment(Int $idAuthor, String $content, Datetime $DatePost, Int $idTopic) :Void {
@@ -12,7 +13,7 @@ class ServiceCommentTopic {
         try {
             $dao = new CommentTopicDAO();
             $dao->addComment($commentaire);
-        } catch (DaoSqlException $ServiceException) {
+        } catch (DAOException $ServiceException) {
             throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
         }
     }
@@ -24,19 +25,33 @@ class ServiceCommentTopic {
             $commentaires = $dao->searchAllCommentByIdTopic($idTopic);
 
             foreach ($commentaires as $commentaire) {
+                $idComm   = $commentaire['idComm'];
                 $idAuthor = $commentaire['idUsers'];
                 $content  = $commentaire['contenuComm'];
                 $idTopic  = $commentaire['idTopic'];
                 $date     = new Datetime($commentaire['date']);
                 
                 $commentaire = new Commentaire();
-                $commentaire->setIdAuthor($idAuthor)->setContenuComm($content)->setDate($date)->setIdTopic($idTopic);
+                $commentaire->setIdComm($idComm)->setIdAuthor($idAuthor)->setContenuComm($content)->setDate($date)->setIdTopic($idTopic);
                 array_push($dataToObject, $commentaire);
             }
-        } catch (DaoSqlException $ServiceException) {
+        } catch (DAOException $ServiceException) {
             throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
         }
 
         return $dataToObject;
+    }
+
+    public static function modifyComment(Int $idComment) {
+
+    }
+
+    public static function deleteComment(Int $idComment, Int $idParentTopic) :Void {
+        try {
+            $dao = new CommentTopicDAO();
+            $dao->delete($idComment, $idParentTopic);
+        } catch (DAOException $ServiceException) {
+            throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
+        }
     }
 }

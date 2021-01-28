@@ -23,8 +23,8 @@
                     ":nbComm"   => $topicNbComment,
                     ":idAuthor" => $idUser)
                 );
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
         }
 
@@ -38,8 +38,8 @@
                 );
                 $data = $searchByRequest->fetch(MYSQLI_ASSOC);
                 return $data;
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
         }
 
@@ -51,8 +51,8 @@
                 $searchRequest->execute();
                 $Topics = $searchRequest->fetchAll();
                 return $Topics;
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
         }
         public function researchPerTen($premierTopic, $topicParPage) :?Array {
@@ -65,8 +65,8 @@
                 $query->execute();
                 $topics= $query->fetchAll(PDO::FETCH_ASSOC) ;
                 return $topics;
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
             
         }
@@ -89,8 +89,8 @@
                     ":author"   => $idUser,
                     ":idTopic"  => $idTopic)
                 );
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
         }   
 
@@ -102,8 +102,8 @@
                 $DeleteRequest->execute(array(
                     ":idTopic" => $idTopic)
                 );
-            } catch (PDOException  $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException  $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }
         }     
         
@@ -114,8 +114,8 @@
                 $searchByRequest = $db->prepare("SELECT * FROM `topic` AS t ORDER BY t.nbComm DESC");
                 $searchByRequest->execute();
                 $rs = $searchByRequest->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             } finally {
                 return $rs;
             }
@@ -128,8 +128,8 @@
                 $searchByRequest = $db->prepare("SELECT * FROM `topic` AS t ORDER BY t.date DESC");
                 $searchByRequest->execute();
                 $rs = $searchByRequest->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $DAOException) {
-                throw new DaoSqlException($DAOException->getMessage(), $DAOException->getCode());
+            } catch (PDOException $DaoException) {
+                throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             } finally {
                 return $rs;
             }

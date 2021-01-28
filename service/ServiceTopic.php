@@ -2,6 +2,7 @@
     require_once '../dao/UserDAO.php';
     require_once '../class/Topic.php';
     require_once '../exception/ServiceException.php';
+    require_once '../exception/DAOException.php';
     require_once '../dao/TopicDAO.php';
 
     class ServiceTopic {
@@ -12,16 +13,18 @@
             try {
                 $dao = new TopicDAO();
                 $dao->add($Topic);
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }
         }
 
         public static function serviceResearchTopicBy(Int $idTopic) :?Topic {
             try {
+                var_dump($idTopic);
                 $dao = new TopicDAO();
                 $data = $dao->researchBy($idTopic);
-            } catch (DaoSqlException $ServiceException) {
+                var_dump($data);
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }
 
@@ -41,13 +44,13 @@
                     $author = UserDAO::researchUserById($value['idUsers']);
                     $Topic = new Topic();
                     $datePost = new Datetime($value['date']);
-                    $Topic->setIdTopic($value['idTopic'])->setTitreTopic($value['titreTopic'])->setDateTopic($datePost)->setContentTopic($value['contenu'])->setNbComm($value['nbComm'])->setIdAuthor($author->pseudo);
+                    $Topic->setIdTopic($value['idTopic'])->setTitreTopic($value['titreTopic'])->setDateTopic($datePost)->setContentTopic($value['contenu'])->setNbComm($value['nbComm'])->setIdAuthor($author->getPseudo());
                     array_push($dataToObject, $Topic);
                 }
                 
                 return $dataToObject;
 
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             } 
         }
@@ -66,7 +69,7 @@
                 }
                 return $dataToObject;
 
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             } 
         }
@@ -78,7 +81,7 @@
             try {
                 $dao = new TopicDAO();
                 $dao->update($TopicToModify, $idTopic);
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }
         }
@@ -87,7 +90,7 @@
             try {    
                 $dao = new TopicDAO();
                 $dao->delete($idTopicToDelete);
-            } catch(DaoSqlException $ServiceException) {
+            } catch(DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }
         }
@@ -96,7 +99,7 @@
             try {
                 $dao = new TopicDAO();
                 $topicsFiltered = $dao->searchByNbComments();
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             } finally {
                 return $topicsFiltered;
@@ -107,7 +110,7 @@
             try {
                 $dao = new TopicDAO();
                 $topicsFiltered = $dao->searchByDate();
-            } catch (DaoSqlException $ServiceException) {
+            } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             } finally {
                 return $topicsFiltered;

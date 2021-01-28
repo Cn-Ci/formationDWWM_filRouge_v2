@@ -1,5 +1,5 @@
 <?php 
-    require_once('../service/ServiceTopic.php');
+    require_once('../service/serviceTopic.php');
     require_once('../presentation/forum_main.php');
 //on détermine la page où on est
 if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -7,6 +7,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 }else{
     $currentPage= 1;
 }
+
 
 
 //nombre article total
@@ -52,9 +53,13 @@ $topics= $query->fetchAll(PDO::FETCH_ASSOC) ;
 
                 try {
                     ServiceTopic::serviceAddTopic($title, $datePost, $content, $nbComment, $Author);
-                    
-                    
-                    
+                    $Topics = ServiceTopic::serviceReseachAll();
+                    echo "
+                        <div class='alert alert-danger m-5' role='alert'>
+                            Le topic à été publié avec succès.
+                        </div>"
+                    ;
+                    RenderForumMain($topics, $e=null,$currentPage, $pages);
                 } catch(ServiceException $ce) {
                     echo 'Error';
                 }
@@ -72,7 +77,13 @@ $topics= $query->fetchAll(PDO::FETCH_ASSOC) ;
 
                 try {
                     ServiceTopic::serviceUpdateTopic($id, $title, $datePost, $content, $nbComment, $idAuthor);
-                    
+                    $Topics = ServiceTopic::serviceReseachAll();
+                    echo "
+                            <div class='alert alert-success m-5' role='alert'>
+                                Le topic à été modifié avec succès.
+                            </div>"
+                        ;
+                        RenderForumMain($topics, $e=null,$currentPage, $pages);
                 } catch(ServiceException $ce) {
                     echo 'Error';
                 }
@@ -87,7 +98,13 @@ $topics= $query->fetchAll(PDO::FETCH_ASSOC) ;
                     
                     try {
                         ServiceTopic::serviceDeleteTopic($idTopic);
-                        
+                        $Topics = ServiceTopic::serviceReseachAll();
+                        echo "
+                            <div class='alert alert-danger m-5 role='alert'>
+                                Le topic à été supprimé avec succès.
+                            </div>"
+                        ;
+                        RenderForumMain($topics, $e=null,$currentPage, $pages);
                     } catch(ServiceException $ce) {
                         echo 'Error';
                     }    
@@ -96,7 +113,7 @@ $topics= $query->fetchAll(PDO::FETCH_ASSOC) ;
                 try {
                     
                 } catch(ServiceException $ce) {
-                    RenderForumMain($Topics, $ce,$currentPage, $pages);
+                    RenderForumMain($topics, $e=null,$currentPage, $pages);
                 }  
             }
         }

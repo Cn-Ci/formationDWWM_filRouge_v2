@@ -26,7 +26,7 @@ $(document).ready(function(){
    $('.map a').click(function(e){
     let region = null;
     region = e.currentTarget.id;
-    console.log(e)
+    console.log(region)
         $.ajax({
             url: "ControllerAjaxDestination.php?region="+region,
             type: "POST",

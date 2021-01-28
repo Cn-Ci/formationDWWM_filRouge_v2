@@ -116,6 +116,9 @@ function RenderForumMain(Array $topics, Exception $e = NULL, $currentPage, $page
             </div>
 
             <?php include_once '../templates/linkScriptJs.php';?>
+            <script type="text/javascript">
+                $(".alert").fadeOut(3000);
+            </script>
             <script type="text/javascript" src="../assets/script.js"></script>
             <script type="text/javascript" src="../assets/scriptForum.js"></script>
         </body>
