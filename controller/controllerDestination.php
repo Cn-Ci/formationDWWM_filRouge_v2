@@ -5,7 +5,7 @@
     html($title="Destinations");
     boutonFrance();
     if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['profil']=="administrateur" && isset($_SESSION['id'])){
-        buttonAjout();
+        buttonAjout($maj=null, $dest=null);
     }
 
     footer();
@@ -37,6 +37,7 @@
                 try {
                     $destination = new ServiceDestination();
                     $destination->serviceAddDestination($id=null, $region,  $lieu,  $imageaEnvoyer,  $petiteDescription,  $description, $atout1,  $atout2,  $atout3, $lien,  $extraitForum,  $idUser) ;
+                    
                 } catch(ServiceException $ce) {
                     echo 'Error';
                 }
@@ -97,7 +98,6 @@
                     
                     $image=$_FILES['image']['tmp_name'];           
                     $imageaEnvoyer = file_get_contents($image);
-                    echo('coucou');
                 
                 try {
                     $destination = new ServiceDestination();

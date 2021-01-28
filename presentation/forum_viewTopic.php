@@ -1,6 +1,5 @@
 <?php 
     function renderViewPost(Topic $Topic, Object $Author, Array $commentaires = null) {
-        
         ?>
         <!DOCTYPE html>
         <html lang="fr">
@@ -48,7 +47,8 @@
                             <div id='infoBlock' class='p-1 justify-content'>
                                 <p id='info'>
                                     <span>Créer le : <?php echo $Topic->datetimeToString($Topic->getDateTopic()); ?></span>
-                                    <span id='author'>Auteur : <?php echo $Author->getPseudo() ?></span>
+                                    <span id='author'>Auteur : <?php echo $Author->getPseudo()?></span>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                         <div id='infoBlock' class='p-1'>
                                             <p id='info'>
                                             <span>Créer le : <?php echo $commentaire->datetimeToString($commentaire->getDate()); ?></span>
-                                                <span id='author'>Auteur : <?php echo getUsernameById($commentaire->getIdAuthor()); ?></span>
+                                                <span id='author'>Auteur : <?php echo $Author->getPseudo()?></span>
                                                 <span id="options" data-toggle="modal" data-target="#OptionsCommentModal">
                                                 <?php if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['profil'] == 'administrateur' || isset($_SESSION) && !empty($_SESSION) && $Author->getPseudo() == $_SESSION['pseudo']) {?>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -99,11 +99,11 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="m-2">
-                                                    <a class ="btn btn-success" href="../controller/controllerAddComment.php?action=modifyComm&idComm=<?php echo $commentaire->getIdComm()?>"> 
+                                                <!-- <div class="m-2">
+                                                    <a class ="btn btn-success" href="../controller/controllerAddComment.php?action=modifyComm&idComm=<?php echo $commentaire->getIdComm(); var_dump($commentaire->getIdComm())?>"> 
                                                         Modifier
                                                     </a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -119,7 +119,7 @@
                         <div class="col-10 p-0 mx-auto">
                             <a href="#messageBox" class='btn btn-success mb-3 ' id="toggleComment">Répondre</a>
                             <div id="messageBox" style="display : none">
-                                <form action='controllerAddComment.php?idPost=<?php echo $_GET['idPost']; ?>' method='POST'>
+                                <form action='controllerAddComment.php?idPost=<?php echo $_GET['idPost'] ?>' method='POST'>
                                     <div>
                                         <textarea style='height: 50px; width: 100%;' name='comment' class='ChampAvis' placeholder='Ma réponse...' required></textarea>
                                     </div>

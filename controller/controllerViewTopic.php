@@ -5,6 +5,7 @@
     require_once '../presentation/forum_viewTopic.php';
 
     $Topic = ServiceTopic::serviceResearchTopicBy($_GET['idPost']);
+    var_dump($_GET['idPost']);
     $author = ServiceViewTopic::searchUserById($Topic->getIdAuthor());
     $comments = serviceCommentTopic::ServiceSearchAllCommentByIdTopic($_GET['idPost']);
     if ($comments) {

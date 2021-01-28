@@ -133,7 +133,7 @@
                 $deleteRequest = $db->prepare("DELETE FROM personnel WHERE id = :id");
                 $deleteRequest->bindParam(':id', $id);
                 $rs=$deleteRequest->execute();   
-                var_dump($rs);return $rs;        
+                return $rs;        
                 
             } catch (PDOException $DaoException) {
                 throw new DAOException($DaoException->getMessage(), $DaoException->getCode());

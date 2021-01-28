@@ -7,6 +7,8 @@ include_once('../exception/ServiceException.php');
 include_once('../service/ServiceUser.php');  
 include_once('../service/ServiceNewsletter.php ');  
 
+
+
 /* IF ACTION -----------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------*/
 if (isset($_GET['action']) && !empty($_GET['action']))
@@ -56,6 +58,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
             if (ServiceUser::UserVerifEmailAndHash($user,($_POST['email'])))
                 {
                     /**_ INSCRIPTION - if email not exist et hash ______**/
+                    
                     connection(24002);
                     // "Vous etes inscrit"
                 }
@@ -148,10 +151,10 @@ if (isset($_GET['action']) && !empty($_GET['action']))
               // ->setPhoto($image = null);
     
             $userEdit = new ServiceUser;
-            $data = $userEdit->editUser($user); 
+            $data = $userEdit->editUser($user);
         }
-        header('location:../controller/controllerUser.php?action=modif');
-        // "Votre modification a bien été enregistrée !"
+            modification($user, 24003);
+            // "Votre modification a bien été enregistrée !"
     }
 
     /* ****************************************** DECONNEXION - Affichage formulaire deconnexion */

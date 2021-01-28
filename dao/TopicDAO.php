@@ -38,6 +38,7 @@
                 );
                 $data = $searchByRequest->fetch(MYSQLI_ASSOC);
                 return $data;
+                
             } catch (PDOException $DaoException) {
                 throw new DAOException($DaoException->getMessage(), $DaoException->getCode());
             }

@@ -163,7 +163,24 @@ function modification($user, $errorCode=null){
         <script>
             // focus
             window.onload = function(){
-                document.getElementById('focusId').focus();
+                document.getElementById('focusIdModif').focus();
+            }
+
+                        // changement photo instannée
+            function previewFile() {
+                var preview = document.querySelector('img');
+                var file    = document.querySelector('input[type=file]').files[0];
+                var reader  = new FileReader();
+
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                }
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                }
             }
         </script>
 <?php 

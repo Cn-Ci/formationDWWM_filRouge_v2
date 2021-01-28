@@ -23,7 +23,7 @@
                 
                 $dao = new TopicDAO();
                 $data = $dao->researchBy($idTopic);
-           
+
             } catch (DAOException $ServiceException) {
                 throw new ServiceException($ServiceException->getMessage(), $ServiceException->getCode());
             }

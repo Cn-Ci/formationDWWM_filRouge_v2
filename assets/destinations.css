@@ -67,8 +67,6 @@ label.photoDestination {
 /* Carte interactive */
 #divContenantFranceMap{
     padding-top: 15%;
-    height: auto;
-    margin: auto;
 }
 
 .map__image path{
@@ -110,7 +108,7 @@ label span input {
     .divContenantFranceMap{
         padding-top:20%
     }
-    #map{
-        width: 60%;
+    .map{
+        width: 70%;
     }
 }
