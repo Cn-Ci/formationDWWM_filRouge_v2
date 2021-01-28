@@ -151,10 +151,15 @@ if (isset($_GET['action']) && !empty($_GET['action']))
               // ->setPhoto($image = null);
     
             $userEdit = new ServiceUser;
-            $data = $userEdit->editUser($user);
+            $data = $userEdit->editUser($user); echo "
+                            <div class='alert alert-success m-5' role='alert'>
+                                Le topic à été modifié avec succès.
+                            </div>"
+                        ;
         }
-            modification($user, 24003);
-            // "Votre modification a bien été enregistrée !"
+        
+        header('location:../controller/controllerUser.php?action=modif');
+        // "Votre modification a bien été enregistrée !"
     }
 
     /* ****************************************** DECONNEXION - Affichage formulaire deconnexion */
